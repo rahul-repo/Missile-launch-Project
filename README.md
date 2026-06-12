@@ -1,5 +1,5 @@
 # Missile Launch Planning Using Linear Regression
-
+## Project Year: 2023
 ## Overview
 
 This project investigates the relationship between the extension length of a synthetic rubber band and the distance travelled after launch. The objective is to develop a predictive statistical model that estimates the required stretch length to reach a desired target distance.
@@ -8,7 +8,7 @@ The study combines experimental data collection, statistical modeling, regressio
 
 ---
 
-**Project Year:** 2023
+
 
 
 ## Key Results
