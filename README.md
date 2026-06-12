@@ -1,6 +1,6 @@
 # Missile Launch Planning Using Linear Regression
 
-![Pooled Data Scatter Plot](latex/figures/Combined.jpg)
+![Pooled Data Scatter Plot](latex/figures/Figure 2 Pooled data graph.png)
 
 ## Project Overview
 
