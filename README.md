@@ -1,7 +1,6 @@
 # Missile Launch Planning Using Linear Regression
 
-![Pooled Data Scatter Plot](latex/figures/Figure 2 Pooled data graph.png)
-
+![Pooled Data Graph](latex/figures/Figure%202%20Pooled%20data%20graph.png)
 ## Project Overview
 
 This project investigates the relationship between the extension length of a synthetic rubber band and the distance travelled after launch. The problem is formulated as a missile launch planning task, where the objective is to determine the required stretch length to reach a desired target distance.
