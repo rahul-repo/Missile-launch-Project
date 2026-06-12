@@ -1,0 +1,162 @@
+\vspace{ -4 cm}\textbf{{\huge 6.Using R to analyse the data}}
+\end{center}
+\vspace{ 1 mm}
+We compiled the data so that we can work on it. At first we plotted the stretched length(x) vs distance travelled(y) for every Rubber band. We saw a linear pattern for each rubber band. Here are the graphs for all the Rubber bands:
+
+\vspace{ 5 mm}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width= 1.37\linewidth]{Overall.jpg}
+    \textbf{\caption{Graph of extended length vs distance for each rubber band}}
+    \label{fig:enter-label}
+\end{figure}
+
+\vspace{ 5 mm}
+
+So, we have already seen the individual extended length-distance graphs for each rubber band. Now we are going to see the overall(pooled data graph) of length -distance.
+\newpage
+\begin{figure}
+    \centering
+    \vspace{-50 mm}\includegraphics{Combined.jpg}
+    \vspace{-8 mm}
+    \textbf{\caption{Pooled data graph}}
+    \label{fig:enter-label}
+\end{figure}
+\hspace{ -5 mm}Here we can see that the scatter plot seems roughly linear in nature. So, We use lm command to fit a  Ordinary least square model of the data. When we fit data using a modelling technique we assume things about the data and variables. For linear regression those assumptions are as follows: 
+
+\begin{itemize}
+\item 
+\underline{\textbf{Linear relationship}}:- There exists a linear relationship between the independent variable, x, and the dependent variable, y i.e. y is some one degree polynomial of x.
+\item 
+\underline{\textbf{Independence}}:- The residuals are independent. In particular, there is no correlation between consecutive residuals in time series data.
+\item  
+\underline{\textbf{Homoscedasticity}}:- The residuals have constant variance at every level of x.
+\item 
+\underline{\textbf{Normality}}:- The residuals of the model are normally distributed.
+If one or more of these assumptions are violated, then the results of our linear regression may be unreliable or even misleading.
+
+\end{itemize}
+\underline{\textbf{Assumption 1: Linear Relationship:-}}
+\newline
+
+\hspace{-5 mm}\underline{\textbf{Explanation:-}}
+\newline
+
+\hspace{-5 mm}So the first assumption of linear regression is to show linearity between the the extended length and the distance which for plots of 9 rubber bands.We need to show that in which plots we can fit a straight line.In this plots figure 1 rubber bands 1,3,5,7,8,9 satisfy a good linear relationship between the variables and figure 1 rubber bands 2,4,6 do not satisfy good linear relationship between the variables as other ones.Although our goal is to see if the pulled data satisfy good linear relationship between the variables as other ones. We have already seen that the data cloud has roughly linear shape. so the first assumption is met.\newline
+
+
+\hspace{ -5 mm}\underline{\textbf{Assumption 2: Independence:-}}
+\newline
+
+\hspace{-5 mm}\underline{\textbf{Explanation:-}}
+\newline
+ 
+\hspace{ -5 mm}The simplest way to test if this assumption is met is to look at a residual time series plot, which is a plot of residuals vs. time. Ideally, most of the residual autocorrelations should fall within the 95\% confidence bands around zero, which are located at about +/- 2-over the square root of n, where n is the sample size. Though we will not try to observe this assumption since our data is not a time series data.\newline
+
+\hspace{ -5 mm}\underline{\textbf{Assumption 3:Homoscedasticity:- }}
+\newline
+
+\hspace{-5 mm}\underline{\textbf{Explanation:-}}
+\newline
+
+\hspace{-5 mm}To prove that the data is Homoscedasticius we first have to show that it is not Heteroscedasticius.These can be shown in several ways as follows:
+\begin{itemize}
+\item 
+\textbf{Transform the dependent variable:}
+\newline
+One common transformation is to simply take the log of the dependent variable. For example, if we are using population size (independent variable) to predict the number of flower shops in a city (dependent variable), we may instead try to use population size to predict the log of the number of candy stores in a city. Using the log of the dependent variable, rather than the original dependent variable, often causes heteroskedasticity to go away.
+\item 
+\textbf{Redefinition of the dependent variable:}
+\newline
+One way to redefine the dependent variable is by defining it with respect to some variable i.e. rate.As for example,instead of using the population size to predict the number of  candy stores in a large city, we may instead use population size to predict the number of candy stores per sq km in a large city. In most cases, this reduces the variability that naturally occurs among larger populations since we’re measuring the number of candy stores per neighbourhood, rather than the sheer amount of candy stores.
+\item 
+\textbf{Use weighted regression :}
+\newline
+Another way to fix heteroscedasticity is to use weighted regression. This type of regression assigns a weight to each data point based on the variance of its fitted value. Essentially, this gives small weights to data points that have higher variances, which shrinks their squared residuals. When the proper weights are used, this can eliminate the problem of heteroscedasticity.
+\item 
+\textbf{scale-location plot:}
+There is another way to see homoscedesticity is to look at Scale-Location plot of the model. This is an informal method. If the curve drawn is roughly linear, then we can say that the homoscedesticity assumption is likely satisfied.
+\end{itemize}
+\vspace{ 3 mm}
+
+\hspace{ -5 mm}\underline{\textbf{Assumption 4: Normality:- }}
+\newline
+
+\hspace{-5 mm}\underline{\textbf{Explanation:-}}
+\newline
+
+\hspace{ -5 mm}The next assumption of linear regression is that the residuals are normally distributed. 
+We will check it by drawing a histogram and see if it fits normal distribution.It can be checked by QQ residual plot if the points on the plot roughly form a straight diagonal line, then the normality assumption is met.
+ \vspace{5 mm}
+
+So, after fitting the model we use summary command and plot command to get the summary and diagnostic plots of the model.We look at the scale-location plot of the model. 
+Here is the scale-location plot of the model:
+
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width= 0.9\linewidth]{scale.jpg}
+    \textbf{\caption{Scale - Location plot}}
+    \label{fig:enter-label}
+\end{figure}
+
+\vspace{5 mm}
+\hspace{-5 mm}This plot is used to check the assumption of equal variance (also called “homoscedasticity”) among the residuals in our regression model. If the red line is roughly horizontal across the plot, then the assumption of equal variance is likely met. we see that the red line here is roughly horizontal. So it seems that the homoscedasticity assumption is met. Now, we look at the residual vs fitted plot.
+Here is the plot:
+\newpage
+\begin{figure}
+    \centering
+    \vspace{-25 mm}\includegraphics{RF plot.jpg}
+    \textbf{\caption{Residuals vs fitted plot}}
+    \label{fig:enter-label}
+\end{figure}
+\vspace{10 mm}
+
+\hspace{-5 mm}We see that the red line is roughly linear. Both of this observations show that linear model can be used to fit the data.
+Now, lastly we check the Q-Q Residual plot. 
+Here is the plot:
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width= 1\linewidth]{QQ plot.jpg}
+    \textbf{\caption{Q-Q residuals plot}}
+    \label{fig:enter-label}
+\end{figure}
+
+
+\hspace{-5 mm}We see that the graph is roughly linear. It has two wobbles at the start and end of the graph.Now we draw the histogram of the distance travelled by the rubber band.
+Here is the Histogram picture:
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width= 1\linewidth]{Normality Assumtion.jpg}
+    \vspace{-10 mm}
+    \textbf{\caption{Histogram}}
+    \label{fig:enter-label}
+\end{figure}
+
+\hspace{-5 mm}As we can see that the important assumptions are met by model and data.
+So we may take this model as descriptor of the experiment results.
+Here is the summary of the model:\newline
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width= 0.88\linewidth]{summary.jpg}
+    \caption{Summary of the linear model}
+    \label{fig:enter-label}
+\end{figure}
+Note that the calculated pearson correlation coefficient of extended length and distance is 0.8875362.
+\newline
+We see that $R^2$ is 0.78. So, this tells us 78 percent of the of the variation in the traveled distance can be explained by the stretched length. The RMSE of the model is 40.64939. The prediction interval and confidence interval are shown in the picture.below.\newline
+
+
+ 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width= 0.88\linewidth]{prediction.jpg}
+    \caption{Prediction and confidence interval graph}
+    \label{fig:enter-label}
+\end{figure}
+
