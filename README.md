@@ -127,4 +127,4 @@ latex/figures/           # Graphs and visualizations
 
 **Rahul Ganguly**
 
-M.Sc. Statistics
+B.Stat. ISI Kolkata
